@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>test</title>
+    <script>
+        function typeOutText(elementId, text, interval) {
+            var el = document.getElementById(elementId);
+            var originalText = el.innerHTML;
+            el.innerHTML = "";
+            var i = 0;
+            var typingInterval = setInterval(function() {
+                el.innerHTML += text[i];
+                i++;
+                if (i == text.length) {
+                    clearInterval(typingInterval);
+                }
+            }, interval);
+        }
+
+        setTimeout(function(){
+            typeOutText("text", "I hope you like roses...", 100);
+        }, 6000);
+
+        setTimeout(function(){
+            typeOutText("text", "Whether they are white or red", 100);
+            var petals = document.querySelectorAll(".rose-petals > div");
+            petals.forEach(function(petal) {
+                petal.style.background = "#ffffff"; // Change rose color to white
+            });
+        }, 12000);
+
+        setTimeout(function(){
+            typeOutText("text", "Or yellow", 100);
+            var petals = document.querySelectorAll(".rose-petals > div");
+            petals.forEach(function(petal) {
+                petal.style.background = "#ffeb3b"; // Change rose color to yellow
+            });
+        }, 18000);
+
+        setTimeout(function(){
+            typeOutText("text", "Or even blue!!", 100);
+            var petals = document.querySelectorAll(".rose-petals > div");
+            petals.forEach(function(petal) {
+                petal.style.background = "#b2ddff"; // Change rose color to blue
+            });
+
+            setTimeout(function(){
+                typeOutText("text", "Happy first of spring!", 100);
+                
+                // Change colors in a loop after displaying "Happy first of spring!"
+                var colors = ["#d52d58", "#b81b43", "#c9204b", "#ff96c0", "#b2ddff", "#ffffff", "#ffeb3b"];
+                var index = 0;
+                setInterval(function() {
+                    petals.forEach(function(petal) {
+                        petal.style.background = colors[index];
+                    });
+                    index = (index + 1) % colors.length;
+                }, 3000); // Change color every 3 seconds
+
+            }, 6000); // Wait for 6 seconds after displaying "Or blue" text before changing to "Happy first of spring!"
+
+        }, 24000);
+    </script>
+</head>
+<body style="background-color: black;">
+
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+    <div class="container">
+        <div class="glass"></div>
+       
+        <div class="glow"></div>
+        <div class="rose-leaves">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="rose-petals">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="content">
+            <p id="text">Hi Sabiha....</p>
+        </div>
+        <div class="sparkles">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>
